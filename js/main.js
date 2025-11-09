@@ -1,5 +1,12 @@
+/* 
+JSON and Bootstrap Assignment
+Last Edited by: J. McCarrick 11/9/2025
+*/
+
+// Class to manage favorite singers data and display it in a table.
 class favoriteSingers {
     constructor() {
+        // Array of singer objects, each with details like name, genre, favorite song, and album.
         this.singers = [
             {
                 singer: "Lil Uzi Vert",
@@ -28,8 +35,13 @@ class favoriteSingers {
         ];
     }
 
+    // Method to populate the HTML table with singer data.
     populateTable() {
         const tbody = document.querySelector(".table tbody");
+        // Clear any existing rows in the table body.
+        tbody.innerHTML = '';
+
+        // Loop through each singer and create a table row.
         this.singers.forEach((singer) => {
             const row = document.createElement("tr");
             row.innerHTML = `
@@ -43,6 +55,7 @@ class favoriteSingers {
     }
 }
 
+// When the DOM is fully loaded, create an instance of favoriteSingers and populate the table.
 document.addEventListener("DOMContentLoaded", () => {
     const app = new favoriteSingers();
     app.populateTable();
